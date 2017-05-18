@@ -5,71 +5,96 @@
  * @variable PRIVATE { Number } `total`
  * @return {object} `calculator` object that can be used
  */
-function calculatorModule() {
-  var memory=0;
-  var total= 0;
-  var calculator={};
+function calculatorModule(x) {
+  var memory = 0;
+  var total = 0;
+  var calculator = {};
 
-  function load(x){
-    total=x;
+
+  function load(x) {
+    if (typeof x === "number") {
+      total = x;
+      return total;
+    } else {
+    alert("error!!!");
+    }
+  }
+
+  function getTotal() {
     return total;
   }
-  function getTotal(){
-return total
+
+  function add(x) {
+    if (typeof x === "number") {
+    var num = x;
+    total += x;
+    return total;
+  } else {
+  alert("error!!!");
   }
-  function add(x){
-    var num= x
-    total+=x
-return total
   }
-  function subtract(x){
-    var num= x
-    total-=x
-return total
+
+  function subtract(x) {
+    if (typeof x === "number") {
+    var num = x;
+    total -= x;
+    return total;
+  } else {
+  alert("error!!!");
   }
-  function multiply(x){
-    var num= x
-    total*=x
-return total
   }
-  function divide(x){
-    var num= x
-    total/=x
-return total
+
+  function multiply(x) {
+    if (typeof x === "number") {
+    var num = x;
+    total *= x;
+    return total;
+  } else {
+  alert("error!!!");
   }
-  function recallMemory(){
+  }
+
+  function divide(x) {
+    if (typeof x === "number") {
+    var num = x;
+    total /= x;
+    return total;
+  } else {
+  alert("error!!!");
+  }
+  }
+
+  function recallMemory() {
     return memory;
   }
-  function saveMemory(){
-   memory=total;
-   return memory;
+
+  function saveMemory() {
+    memory = total;
+    return memory;
+  }
+
+  function clearMemory() {
+    memory = 0;
+    return memory;
   }
   return {
-    load:load,
-    getTotal:getTotal,
-    add:add,
-    subtract:subtract,
-    multiply:multiply,
-    divide:divide,
-    recallMemory:recallMemory,
-    saveMemory:saveMemory,
+    load: load,
+    getTotal: getTotal,
+    add: add,
+    subtract: subtract,
+    multiply: multiply,
+    divide: divide,
+    recallMemory: recallMemory,
+    saveMemory: saveMemory,
+    clearMemory: clearMemory,
   }
 
 }
 
+/**
+ * Clear the value stored at `memory`
+ */
 
-
-
-
-  /**
-   * Stores the value of `total` to `memory`
-   */
-
-
-  /**
-   * Clear the value stored at `memory`
-   */
-
-  /**
-   * Validation
-   */
+/**
+ * Validation
+ */
